@@ -2,12 +2,15 @@ import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import TodoItem from "./TodoItem";
 
+// type 정해주기
 export interface Todo {
   id: number;
   text: string;
-  done: boolean;
+  done?: boolean;
+  location?: string;
 }
 
+// query로 서버에 원하는 데이터 요청하기
 const GET_TODOS = gql`
   query getTodos {
     allTodos {
@@ -19,9 +22,9 @@ const GET_TODOS = gql`
 `;
 
 const TodoContainer = () => {
+  // 쿼리로 불러온 데이터 꺼내주기
   const { data, loading, error } = useQuery(GET_TODOS);
   const todos: Todo[] = data?.allTodos;
-  console.log(todos);
   if (loading) {
     return <h1>loading...</h1>;
   }
