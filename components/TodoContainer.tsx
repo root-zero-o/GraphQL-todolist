@@ -11,7 +11,7 @@ export interface Todo {
 }
 
 // query로 서버에 원하는 데이터 요청하기
-const GET_TODOS = gql`
+export const GET_TODOS = gql`
   query getTodos {
     allTodos {
       id
