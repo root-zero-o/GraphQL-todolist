@@ -30,16 +30,18 @@ const TodoDetail = () => {
     <h1>error</h1>;
   }
   return (
-    <div className="w-screen flex flex-col items-center py-10 font-serif space-y-10 text-5xl">
-      <h1>id : {data?.todo.id}</h1>
-      <h2>할 일 : {data?.todo.text}</h2>
-      {data?.todo.location ? (
-        <h2>장소 : {data?.todo.location}</h2>
-      ) : (
-        <h2>장소 : 장소를 등록하지 않았어요 :(</h2>
-      )}
+    <div className="w-screen flex flex-col items-center">
+      <div className="flex flex-col items-center py-10 font-serif space-y-10 w-1/2 my-10 bg-slate-300">
+        <h1>id : {data?.todo.id}</h1>
+        <h2>할 일 : {data?.todo.text}</h2>
+        {data?.todo.location ? (
+          <h2>장소 : {data?.todo.location}</h2>
+        ) : (
+          <h2>장소 : 장소를 등록하지 않았어요 :(</h2>
+        )}
 
-      <DoneCheckbox id={id} done={data?.todo.done} />
+        <DoneCheckbox id={id} done={data?.todo.done} />
+      </div>
     </div>
   );
 };
