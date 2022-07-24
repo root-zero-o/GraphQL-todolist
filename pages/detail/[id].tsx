@@ -39,7 +39,7 @@ const TodoDetail = () => {
         <h2>장소 : 장소를 등록하지 않았어요 :(</h2>
       )}
 
-      <DoneCheckbox done={data?.todo.done} />
+      <DoneCheckbox id={id} done={data?.todo.done} />
     </div>
   );
 };
